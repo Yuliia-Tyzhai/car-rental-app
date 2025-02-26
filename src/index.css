@@ -1,5 +1,5 @@
 :root {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #101828;
@@ -27,8 +27,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
+  font-family: 'Manrope', sans-serif;
 }
 
 h1 {

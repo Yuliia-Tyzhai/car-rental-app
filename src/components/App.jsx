@@ -2,7 +2,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import Navigation from './Navigation/Navigation';
+import Layout from './Layout/Layout';
 
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -15,8 +15,8 @@ function App() {
   
   return (
     <div>
-      <Navigation />
-      <Routes>
+      <Layout>
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
             path="/catalog"
@@ -25,6 +25,7 @@ function App() {
             path="/catalog/:id"
             element={<CarPage />} />
         </Routes>
+      </Layout>
     </div>
   );
 }
