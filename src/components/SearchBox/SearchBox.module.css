@@ -1,0 +1,44 @@
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column; /* Встановлюємо вертикальне вирівнювання для групи полів */
+  margin-bottom: 0; /* Видаляємо відступ, щоб поля були на одному рівні */
+}
+
+label {
+  margin-bottom: 5px; /* Додаємо відступ між лейблом і полем */
+  font-weight: bold;
+}
+
+input,
+.select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Додаємо ширину для заповнення контейнера */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #a7a7a7;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

@@ -1,3 +1,4 @@
+// src/redux/cars/slice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCars, fetchCarById, fetchMoreCars } from './operations';
 
@@ -10,8 +11,7 @@ const initialState = {
 
 const carsSlice = createSlice({
   name: 'cars',
-  initialState: initialState,
-
+  initialState,
   reducers: {
     addFavorite: (state, action) => {
       state.items = state.items.map(car =>
@@ -19,7 +19,6 @@ const carsSlice = createSlice({
       );
     },
   },
-
   extraReducers: builder => {
     builder
       .addCase(fetchCars.pending, state => {
@@ -28,7 +27,7 @@ const carsSlice = createSlice({
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload.cars; // Використовуємо action.payload.cars
         state.page = 1;
       })
       .addCase(fetchCars.rejected, (state, action) => {

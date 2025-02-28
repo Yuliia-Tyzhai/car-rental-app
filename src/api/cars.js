@@ -1,20 +1,19 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://car-rental-api.goit.global/cars';
+const BASE_URL = 'https://car-rental-api.goit.global';
 
-export const getCars = async ({ brand, price, mileage, page = 1 }) => {
-  const params = new URLSearchParams();
-  if (brand) params.append('brand', brand);
-  if (price) params.append('price', price);
-  if (mileage?.from) params.append('mileage_from', mileage.from);
-  if (mileage?.to) params.append('mileage_to', mileage.to);
-  params.append('page', page);
-
-  const response = await axios.get(`${BASE_URL}?${params.toString()}`);
+export const getCars = async (filters = {}) => {
+  const params = new URLSearchParams(filters);
+  const response = await axios.get(`${BASE_URL}/cars`, { params });
   return response.data;
 };
 
 export const getCarById = async id => {
-  const response = await axios.get(`${BASE_URL}/${id}`);
+  const response = await axios.get(`${BASE_URL}/cars/${id}`);
+  return response.data;
+};
+
+export const getBrands = async () => {
+  const response = await axios.get(`${BASE_URL}/brands`);
   return response.data;
 };
