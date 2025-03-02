@@ -4,7 +4,7 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
     brand: '',
-    price: '',
+    rentalPrice: '',
     mileage: { from: '', to: '' },
   },
   reducers: {
@@ -12,14 +12,14 @@ const filtersSlice = createSlice({
       state.brand = action.payload;
     },
     setPrice: (state, action) => {
-      state.price = action.payload;
+      state.rentalPrice = action.payload;
     },
     setMileage: (state, action) => {
       state.mileage = action.payload;
     },
     resetFilters: state => {
       state.brand = '';
-      state.price = '';
+      state.rentalPrice = '';
       state.mileage = { from: '', to: '' };
     },
   },

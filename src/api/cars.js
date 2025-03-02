@@ -8,12 +8,12 @@ export const getCars = async (filters = {}) => {
   return response.data;
 };
 
-export const getCarById = async id => {
-  const response = await axios.get(`${BASE_URL}/cars/${id}`);
+export const getBrands = async () => {
+  const response = await axios.get(`${BASE_URL}/brands`);
   return response.data;
 };
 
-export const getBrands = async () => {
-  const response = await axios.get(`${BASE_URL}/brands`);
+export const getCarById = async id => {
+  const response = await axios.get(`${BASE_URL}/cars/${id}`);
   return response.data;
 };

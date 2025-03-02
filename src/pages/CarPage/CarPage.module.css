@@ -1,6 +1,5 @@
 .carPageContainer {
   padding-top: 152px;
-  padding-left: 120px;
   width: 1200px;
 }
 
@@ -110,9 +109,9 @@ ul {
   padding: 0;
 }
 
-li:not(:last-child) {
+/* li:not(:last-child) {
   margin-bottom: 16px;
-}
+} */
 
 .carDetails {
   margin-bottom: 68px;

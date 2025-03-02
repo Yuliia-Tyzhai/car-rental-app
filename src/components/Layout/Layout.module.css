@@ -1,15 +1,11 @@
 .layoutContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0 16px;
+  margin: 0 auto;
+  padding: 0 120px;
+  width: 1200px;
 }
 
-.navContainer {
+/* .navContainer {
   display: flex;
   justify-content: center;
   width: 100%;
-}
+} */

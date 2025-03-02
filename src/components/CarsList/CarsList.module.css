@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
-  padding: 0 120px 80px 120px;
+  padding-bottom: 80px;
   /* margin: 0; */
   list-style-type: none;
+  width: 1200px;
 }
 
 .carCard {

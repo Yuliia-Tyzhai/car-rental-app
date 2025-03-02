@@ -14,8 +14,9 @@
   flex-direction: column;
   gap: 52px;
   background-image: url('../../assets/hero/Hero-image-min.png');
-  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -24,6 +25,15 @@
   position: fixed;
   top: 0;
   left: 0;
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 192dpi) {
+  .homePageContainer {
+    background-image: url('../../assets/hero/Hero-image@2x-min.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 .textContainer {

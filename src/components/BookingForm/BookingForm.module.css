@@ -3,14 +3,13 @@
   align-items: start;
   justify-content: center;
   flex-direction: column;
-  /* gap: 24px; */
   border: 1px solid #dadde1;
   border-radius: 10px;
-  /* padding: 32px; */
   width: 640px;
   height: 488px;
   background: #fff;
   margin-right: 72px;
+  height: auto;
 }
 
 .bookingForm h1,
@@ -36,19 +35,6 @@
   color: #8d929a;
 }
 
-/* .formField {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  border-radius: 12px;
-  padding: 12px 20px;
-  width: 576px;
-  height: 48px;
-  background: #f7f7f7;
-} */
-
 .formField input {
   display: flex;
   align-items: flex-start;
@@ -62,6 +48,12 @@
   font-size: 16px;
   line-height: 1.25;
   color: #8d929a;
+}
+
+.formField input:focus,
+.formField textarea:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 .formField textarea {
@@ -129,4 +121,13 @@
 
 .titles {
   padding: 32px 0 0 32px;
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  padding-left: 32px;
 }

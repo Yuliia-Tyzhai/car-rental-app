@@ -14,15 +14,15 @@ import { Link } from 'react-router-dom';
 
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();
-  const favouriteCars = useSelector(state => state.favouriteCars.items);
+  const favouriteCars = useSelector(state => state.favouriteCars.items); // Вибірка обраних автомобілів
   const isFavourite = favouriteCars.some(favCar => favCar.id === car.id);
 
   const handleFavouriteClick = () => {
     if (isFavourite) {
-      dispatch(removeFromFavourites(car.id));
+      dispatch(removeFromFavourites(car.id)); // Видалення з обраних
       console.log('Removed from favourites:', car);
     } else {
-      dispatch(addToFavourites(car));
+      dispatch(addToFavourites(car)); // Додавання до обраних
       console.log('Added to favourites:', car);
     }
   };

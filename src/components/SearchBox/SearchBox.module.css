@@ -1,41 +1,143 @@
-.searchBox {
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 30px;
+}
+
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.select,
+.selectPrice {
+  width: 200px;
+  padding-right: 30px;
+  padding-left: 10px;
+  border-radius: 12px;
+  border: 1px solid #dadde1;
+  background-color: #f7f7f7;
+  color: #101828;
+  font-size: 16px;
+  height: 44px;
+}
+
+.selectPrice {
+  background-color: #f7f7f7;
+}
+
+.formContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 16px;
+  align-items: center;
   margin-bottom: 56px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
+  align-items: flex-start;
 }
 
-label {
-  margin-bottom: 5px;
-  font-weight: bold;
+.formGroup label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  margin-bottom: 8px;
+  color: #8d929a;
+  white-space: nowrap;
+  text-align: left;
 }
 
-input,
-.select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
+.mileageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.mileageFields {
+  display: flex;
+  gap: 0;
 }
 
-button:disabled {
-  background-color: #a7a7a7;
+.selectMileageFrom,
+.selectMileageTo {
+  width: 160px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  border: 1px solid #dadde1;
+  font-size: 16px;
+  padding-left: 24px;
+}
+
+.selectMileageFrom {
+  border-right: 1px solid #dadde1;
+  border-radius: 12px 0 0 12px;
+}
+
+.selectMileageTo {
+  border-radius: 0 12px 12px 0;
+}
+
+.buttonContainer {
+  padding-top: 24px;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background: #3470ff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.searchButton:hover {
+  background-color: #0b44cd;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+.select option {
+  background: #ffffff;
+  color: #101828;
+  padding: 10px;
+}
+
+select option:hover {
+  background: #f3f4f6;
 }
 
 .error {

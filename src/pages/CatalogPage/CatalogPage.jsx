@@ -22,33 +22,47 @@ const CatalogPage = () => {
   const currentPage = useSelector(selectCurrentPage);
   const totalPages = useSelector(selectTotalPages);
   const [searchParams, setSearchParams] = useState({});
+  const [isLoadingMore, setIsLoadingMore] = useState(false); // Стан для запобігання подвійним запитам
 
   const hasMoreCars = currentPage < totalPages;
 
   useEffect(() => {
+    // Початкове завантаження карток із фільтрами
     dispatch(fetchCars(searchParams));
   }, [dispatch, searchParams]);
 
   const handleLoadMore = () => {
-    dispatch(fetchMoreCars(searchParams));
+    if (isLoadingMore) return; // Якщо вже йде завантаження, не дозволяємо новий запит
+    setIsLoadingMore(true);
+    dispatch(fetchMoreCars(searchParams)).finally(() => {
+      setIsLoadingMore(false); // Після завершення запиту відновлюємо стан
+    });
   };
 
   const handleSearch = params => {
-    setSearchParams(params);
+    setSearchParams(params); // Оновлюємо параметри пошуку, що передаються на сервер
   };
 
   return (
     <div className={styles.catalogContainer}>
       <DocumentTitle>Catalog</DocumentTitle>
       <SearchBox onSearch={handleSearch} />
-      <Loader loading={loading} />
+      {/* Лоадер для початкового завантаження */}
+      {loading && <Loader loading={true} />}
       {error && <p>{error}</p>}
       <CarsList cars={cars} />
 
-      {hasMoreCars && (
+      {/* Лоадер для додаткових автомобілів */}
+      {isLoadingMore && <Loader loading={true} />}
+
+      {hasMoreCars && !loading && (
         <div className={styles.buttonContainer}>
-          <button className={styles.buttonLoadMore} onClick={handleLoadMore}>
-            Load More
+          <button
+            className={styles.buttonLoadMore}
+            onClick={handleLoadMore}
+            disabled={isLoadingMore} // Вимикаємо кнопку, якщо завантаження вже йде
+          >
+            {isLoadingMore ? 'Loading...' : 'Load More'}
           </button>
         </div>
       )}

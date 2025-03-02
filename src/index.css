@@ -23,9 +23,9 @@ a {
 } */
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: 0 auto;
+  /* display: flex;
+  place-items: center; */
   font-family: 'Manrope', sans-serif;
 }
 
@@ -36,6 +36,8 @@ body {
 
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -43,6 +45,15 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+} */
 /* button:hover {
   border-color: #646cff;
 }

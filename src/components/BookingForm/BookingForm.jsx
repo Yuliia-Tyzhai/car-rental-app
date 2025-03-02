@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { bookingFormValidationSchema } from '../../utils/validationSchemas'; // імпортуємо валідаційну схему
+import DatePicker from 'react-datepicker'; // імпортуємо пікер дати
+import 'react-datepicker/dist/react-datepicker.css'; // імпортуємо стилі для пікера
+import Loader from '../../components/Loader/Loader';
 import styles from './BookingForm.module.css';
 
 const BookingForm = () => {
   const [successMessage, setSuccessMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
     name: '',
     email: '',
-    date: '',
+    date: null,
     comment: '',
   };
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Required'),
-    email: Yup.string().email('Invalid email format').required('Required'),
-    date: Yup.date(),
-  });
-
   const onSubmit = (values, { resetForm }) => {
+    setIsSubmitting(true);
     console.log('Form data', values);
     setSuccessMessage('Your booking was successful!');
     resetForm();
+    setIsSubmitting(false);
   };
 
   return (
@@ -33,56 +33,80 @@ const BookingForm = () => {
       </div>
 
       {successMessage && <div className={styles.success}>{successMessage}</div>}
+
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={bookingFormValidationSchema} // використовуємо імпортовану схему
         onSubmit={onSubmit}
       >
-        <Form className={styles.inputs}>
-          <div className={styles.formField}>
-            <Field type="text" id="name" name="name" placeholder="Name*" />
-            <ErrorMessage
-              name="name"
-              component="div"
-              className={styles.error}
-            />
-          </div>
-          <div className={styles.formField}>
-            <Field type="email" id="email" name="email" placeholder="Email*" />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className={styles.error}
-            />
-          </div>
-          <div className={styles.formField}>
-            <Field
-              type="date"
-              id="date"
-              name="date"
-              placeholder="Booking date"
-            />
-            <ErrorMessage
-              name="date"
-              component="div"
-              className={styles.error}
-            />
-          </div>
-          <div className={styles.formField}>
-            <Field
-              as="textarea"
-              id="comment"
-              name="comment"
-              placeholder="Comment"
-            />
-          </div>
-          <div className={styles.buttonContainer}>
-            <button className={styles.buttonSend} type="submit">
-              Send
-            </button>
-          </div>
-        </Form>
+        {({ setFieldValue }) => (
+          <Form className={styles.inputs}>
+            <div className={styles.formField}>
+              <Field type="text" id="name" name="name" placeholder="Name*" />
+              <ErrorMessage
+                name="name"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+            <div className={styles.formField}>
+              <Field
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email*"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.formField}>
+              <Field name="date">
+                {({ field, form }) => (
+                  <DatePicker
+                    {...field}
+                    selected={field.value ? new Date(field.value) : null}
+                    onChange={date => setFieldValue(field.name, date)}
+                    dateFormat="yyyy-MM-dd"
+                    minDate={new Date()}
+                    placeholderText="Booking date"
+                    className={styles.dateInput}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="date"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+
+            <div className={styles.formField}>
+              <Field
+                as="textarea"
+                id="comment"
+                name="comment"
+                placeholder="Comment"
+              />
+            </div>
+
+            <div className={styles.buttonContainer}>
+              <button
+                className={styles.buttonSend}
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send'}
+              </button>
+            </div>
+          </Form>
+        )}
       </Formik>
+
+      <Loader loading={isSubmitting} />
     </div>
   );
 };
