@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCarById } from '../../api/cars';
-import { formatMileage } from '../../utils/formatMileage';
+import {
+  formatMileage,
+  getFirstFourDigits,
+  getAddressCityCountrySec,
+} from '../../utils/formatUtils';
 import BookingForm from '../../components/BookingForm/BookingForm';
-import { getFirstFourDigits } from '../../utils/getFirstFourDigits.js';
-import { getAddressCityCountrySec } from '../../utils/getAddressCityCountry.js';
+
 import styles from './CarPage.module.css';
 import { ReactSVG } from 'react-svg';
 import placeIcon from '../../assets/carPage/place.svg';

@@ -1,23 +1,21 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 960px;
+  padding: 24px 120px 24px 120px;
   border-bottom: 1px solid #f2f4f7;
-  background: #f2f4f7;
-  padding: 0px 120px;
-  height: 68px;
+  background-color: #f2f4f7;
+  z-index: 9;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 6;
 }
-/* 
+
 .headerContainer {
-  width: 1200px;
-} */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 960px;
+}
 
 .navList {
   display: flex;

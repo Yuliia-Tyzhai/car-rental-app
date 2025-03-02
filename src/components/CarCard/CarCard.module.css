@@ -1,4 +1,3 @@
-/* Загальні стилі для картки автомобіля */
 .carCard {
   display: flex;
   align-items: flex-start;
@@ -8,7 +7,6 @@
   position: relative;
 }
 
-/* Стилі для зображення автомобіля */
 .carImg {
   border-radius: 14px;
   width: 276px;
@@ -20,7 +18,6 @@
   );
 }
 
-/* Стилі для заголовка (марка, модель, рік) */
 .carHeader {
   display: flex;
   justify-content: space-between;
@@ -28,12 +25,10 @@
   line-height: 1.25;
 }
 
-/* Стилі для моделі автомобіля */
 .carModel {
   color: #3470ff;
 }
 
-/* Стилі для блоку деталей автомобіля */
 .detailsBlock {
   text-align: start;
   gap: 4px;
@@ -59,7 +54,6 @@
   background-color: #dadde1;
 }
 
-/* Стилі для кнопки "Read More" */
 .buttonReadMore {
   display: flex;
   align-items: center;

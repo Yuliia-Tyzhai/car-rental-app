@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBrands, getCars } from '../../api/cars';
 import { setBrand, setPrice, setMileage } from '../../redux/filters/slice';
 import styles from './SearchBox.module.css';
 import arrowDown from '../../assets/searchBox/chevron-down-icon.svg';
 import arrowUp from '../../assets/searchBox/chevron-up-icon.svg';
-
-// Схема валідації для форми
-const validationSchema = Yup.object({
-  brand: Yup.string(),
-  rentalPrice: Yup.number().positive('Price must be positive'),
-  mileageFrom: Yup.number().positive('Mileage must be positive'),
-  mileageTo: Yup.number().positive('Mileage must be positive'),
-});
+import { searchBoxValidationSchema } from '../../utils/validationSchemas';
+import { formatNumberWithCommas } from '../../utils/formatUtils';
 
 const SearchBox = ({ onSearch }) => {
   const dispatch = useDispatch();
@@ -26,7 +19,6 @@ const SearchBox = ({ onSearch }) => {
   const [isBrandDropdownOpen, setIsBrandDropdownOpen] = useState(false);
   const [isPriceDropdownOpen, setIsPriceDropdownOpen] = useState(false);
 
-  // Отримуємо бренди та інші дані при першому завантаженні компонента
   useEffect(() => {
     const fetchBrands = async () => {
       try {
@@ -75,26 +67,16 @@ const SearchBox = ({ onSearch }) => {
     fetchAllCars();
   }, []);
 
-  const formatNumberWithCommas = num => {
-    if (num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-    return '';
-  };
-
   const toggleBrandDropdown = () =>
     setIsBrandDropdownOpen(!isBrandDropdownOpen);
   const togglePriceDropdown = () =>
     setIsPriceDropdownOpen(!isPriceDropdownOpen);
 
-  // Функція для обробки відправки форми
   const handleSearchSubmit = values => {
-    // Встановлюємо значення фільтрів у Redux
     dispatch(setBrand(values.brand));
     dispatch(setPrice(values.rentalPrice));
     dispatch(setMileage({ from: values.mileageFrom, to: values.mileageTo }));
 
-    // Викликаємо onSearch, щоб передати фільтри для пошуку на сервер
     onSearch({
       brand: values.brand,
       rentalPrice: values.rentalPrice,
@@ -111,8 +93,8 @@ const SearchBox = ({ onSearch }) => {
           mileageFrom: mileage.from || '',
           mileageTo: mileage.to || '',
         }}
-        validationSchema={validationSchema}
-        onSubmit={handleSearchSubmit} // Викликаємо handleSearchSubmit для обробки
+        validationSchema={searchBoxValidationSchema}
+        onSubmit={handleSearchSubmit}
       >
         {({ values, setFieldValue }) => (
           <Form className={styles.searchBox}>

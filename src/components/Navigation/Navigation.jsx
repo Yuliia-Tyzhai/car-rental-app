@@ -13,8 +13,8 @@ const Navigation = () => {
   const isCarPageCheck = isCarPage(location.pathname);
 
   return (
-    <div className={styles.headerContainer}>
-      <header className={styles.header}>
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
         <div className={styles.rentalCarLogoContainer}>
           <Link to="/">
             <ReactSVG className={styles.rentalCarLogo} src={rentalCarLogo} />
@@ -55,8 +55,8 @@ const Navigation = () => {
             </ul>
           </nav>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 

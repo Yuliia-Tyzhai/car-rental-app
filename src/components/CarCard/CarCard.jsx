@@ -4,9 +4,11 @@ import {
   addToFavourites,
   removeFromFavourites,
 } from '../../redux/favouriteCars/slice';
-import { formatMileage } from '../../utils/formatMileage';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
-import { getAddressCityCountry } from '../../utils/getAddressCityCountry';
+import {
+  formatMileage,
+  capitalizeFirstLetter,
+  getAddressCityCountry,
+} from '../../utils/formatUtils';
 import styles from './CarCard.module.css';
 import heartIcon from '../../assets/carCard/default.svg';
 import heartIconBlue from '../../assets/carCard/active.svg';
@@ -14,16 +16,14 @@ import { Link } from 'react-router-dom';
 
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();
-  const favouriteCars = useSelector(state => state.favouriteCars.items); // Вибірка обраних автомобілів
+  const favouriteCars = useSelector(state => state.favouriteCars.items);
   const isFavourite = favouriteCars.some(favCar => favCar.id === car.id);
 
   const handleFavouriteClick = () => {
     if (isFavourite) {
-      dispatch(removeFromFavourites(car.id)); // Видалення з обраних
-      console.log('Removed from favourites:', car);
+      dispatch(removeFromFavourites(car.id));
     } else {
-      dispatch(addToFavourites(car)); // Додавання до обраних
-      console.log('Added to favourites:', car);
+      dispatch(addToFavourites(car));
     }
   };
 

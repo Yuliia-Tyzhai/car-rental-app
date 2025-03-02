@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { bookingFormValidationSchema } from '../../utils/validationSchemas'; // імпортуємо валідаційну схему
-import DatePicker from 'react-datepicker'; // імпортуємо пікер дати
-import 'react-datepicker/dist/react-datepicker.css'; // імпортуємо стилі для пікера
+import { bookingFormValidationSchema } from '../../utils/validationSchemas';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import Loader from '../../components/Loader/Loader';
 import styles from './BookingForm.module.css';
 
@@ -36,7 +36,7 @@ const BookingForm = () => {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={bookingFormValidationSchema} // використовуємо імпортовану схему
+        validationSchema={bookingFormValidationSchema}
         onSubmit={onSubmit}
       >
         {({ setFieldValue }) => (
