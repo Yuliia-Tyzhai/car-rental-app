@@ -9,6 +9,8 @@ import {
 import SearchBox from '../../components/SearchBox/SearchBox';
 import CarsList from '../../components/CarsList/CarsList';
 import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
+import Loader from '../../components/Loader/Loader';
+import styles from './CatalogPage.module.css';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -21,10 +23,6 @@ const CatalogPage = () => {
     dispatch(fetchCars(searchParams));
   }, [dispatch, searchParams]);
 
-  useEffect(() => {
-    console.log('cars:', cars); // Додайте цей рядок для перевірки
-  }, [cars]);
-
   const handleLoadMore = () => {
     dispatch(fetchMoreCars(searchParams));
   };
@@ -34,14 +32,17 @@ const CatalogPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.catalogContainer}>
       <DocumentTitle>Catalog</DocumentTitle>
-      <h1>Catalog</h1>
       <SearchBox onSearch={handleSearch} />
-      {loading && <p>Loading...</p>}
+      <Loader loading={loading} />
       {error && <p>{error}</p>}
       <CarsList cars={cars} />
-      <button onClick={handleLoadMore}>Load More</button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.buttonLoadMore} onClick={handleLoadMore}>
+          Load More
+        </button>
+      </div>
     </div>
   );
 };

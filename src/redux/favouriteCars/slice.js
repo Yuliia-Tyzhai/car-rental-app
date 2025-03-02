@@ -1,14 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = [];
+
 const favouriteCarsSlice = createSlice({
   name: 'favouriteCars',
-  initialState: [],
+  initialState,
   reducers: {
     addToFavourites: (state, action) => {
-      state.push(action.payload);
+      if (Array.isArray(state)) {
+        const existingCar = state.find(car => car.id === action.payload.id);
+        if (!existingCar) {
+          state.push(action.payload);
+        }
+      }
     },
     removeFromFavourites: (state, action) => {
-      return state.filter(car => car.id !== action.payload.id);
+      if (Array.isArray(state)) {
+        return state.filter(car => car.id !== action.payload);
+      }
+      return state;
     },
   },
 });

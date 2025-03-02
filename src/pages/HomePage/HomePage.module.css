@@ -7,7 +7,7 @@
   margin-bottom: 16px;
 }
 
-.container {
+.homePageContainer {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -31,8 +31,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 436px;
-  margin-bottom: 60px;
+  margin: 436px 328px 144px 328px;
 }
 
 .paragraph {

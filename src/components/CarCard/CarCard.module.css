@@ -1,0 +1,91 @@
+/* Загальні стилі для картки автомобіля */
+.carCard {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: auto;
+  position: relative;
+}
+
+/* Стилі для зображення автомобіля */
+.carImg {
+  border-radius: 14px;
+  width: 276px;
+  height: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+}
+
+/* Стилі для заголовка (марка, модель, рік) */
+.carHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+/* Стилі для моделі автомобіля */
+.carModel {
+  color: #3470ff;
+}
+
+/* Стилі для блоку деталей автомобіля */
+.detailsBlock {
+  text-align: start;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  margin-bottom: 28px;
+}
+
+.detailsBlock span {
+  margin-right: 12px;
+  position: relative;
+}
+
+.detailsBlock span:not(:last-child)::after {
+  position: absolute;
+  content: '';
+  right: -6px;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #dadde1;
+}
+
+/* Стилі для кнопки "Read More" */
+.buttonReadMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 12px;
+  padding: 12px 97px;
+  width: 100%;
+  height: 44px;
+  background-color: #3470ff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.buttonReadMore:hover {
+  background-color: #0b44cd;
+}
+
+.icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  fill: #f2f4f7;
+  cursor: pointer;
+}

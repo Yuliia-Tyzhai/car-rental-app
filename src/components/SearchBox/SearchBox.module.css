@@ -8,12 +8,12 @@
 
 .formGroup {
   display: flex;
-  flex-direction: column; /* Встановлюємо вертикальне вирівнювання для групи полів */
-  margin-bottom: 0; /* Видаляємо відступ, щоб поля були на одному рівні */
+  flex-direction: column;
+  margin-bottom: 0;
 }
 
 label {
-  margin-bottom: 5px; /* Додаємо відступ між лейблом і полем */
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -22,7 +22,7 @@ input,
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%; /* Додаємо ширину для заповнення контейнера */
+  width: 100%;
 }
 
 button {

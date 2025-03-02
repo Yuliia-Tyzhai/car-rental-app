@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-
 import {
   persistStore,
   persistReducer,
@@ -11,7 +10,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
 import carsReducer from './cars/slice';
 import filtersReducer from './filters/slice';
 import favouriteCarsReducer from './favouriteCars/slice';
@@ -22,11 +20,16 @@ const persistConfig = {
   whitelist: ['favouriteCars'],
 };
 
+const persistedFavouriteCarsReducer = persistReducer(
+  persistConfig,
+  favouriteCarsReducer
+);
+
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
     filters: filtersReducer,
-    favouriteCars: persistReducer(persistConfig, favouriteCarsReducer),
+    favouriteCars: persistedFavouriteCarsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

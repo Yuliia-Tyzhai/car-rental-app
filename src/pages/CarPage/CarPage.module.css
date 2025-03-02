@@ -1,0 +1,119 @@
+.carPageContainer {
+  padding-top: 152px;
+  padding-left: 120px;
+  width: 1200px;
+}
+
+.carImg {
+  border-radius: 19px;
+  max-width: 640px;
+  width: 100%;
+  height: 512px;
+  margin-bottom: 40px;
+}
+
+.carId {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.carModel {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #101828;
+}
+
+.carPageContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: justify;
+}
+
+.carRow {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.carAddress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.carAddress div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carInfo ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carInfo ul {
+  margin-bottom: 110px;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* gap: 110px; */
+}
+
+.rentalPrice {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #3470ff;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #101828;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 20px;
+}
+
+p,
+ul {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+ul {
+  padding: 0;
+}
+
+li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.carDetails {
+  margin-bottom: 68px;
+}

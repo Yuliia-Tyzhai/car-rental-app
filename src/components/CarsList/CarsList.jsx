@@ -1,5 +1,6 @@
 import React from 'react';
 import CarCard from '../CarCard/CarCard';
+import styles from './CarsList.module.css';
 
 const CarsList = ({ cars }) => {
   if (!Array.isArray(cars) || cars.length === 0) {
@@ -7,9 +8,9 @@ const CarsList = ({ cars }) => {
   }
 
   return (
-    <ul>
+    <ul className={styles.carsList}>
       {cars.map(car => (
-        <li key={car.id}>
+        <li key={car.id} className={styles.carItem}>
           <CarCard car={car} />
         </li>
       ))}

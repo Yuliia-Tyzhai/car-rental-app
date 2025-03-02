@@ -6,7 +6,7 @@
   gap: 960px;
   border-bottom: 1px solid #f2f4f7;
   background: #f2f4f7;
-  padding: 24px 120px;
+  padding: 0px 140px;
   height: 68px;
   position: fixed;
   top: 0;
@@ -14,14 +14,6 @@
   width: 100%;
   z-index: 6;
 }
-
-/* .nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  gap: 32px;
-} */
 
 .navList {
   display: flex;
@@ -42,3 +34,7 @@
 .active {
   color: #0b44cd;
 }
+
+/* .rentalCarLogo {
+  padding-left: 120px;
+} */

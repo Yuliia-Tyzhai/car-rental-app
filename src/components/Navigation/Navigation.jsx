@@ -14,7 +14,7 @@ const Navigation = () => {
     <div>
       <header className={styles.header}>
         <Link to="/">
-          <ReactSVG src={rentalCarLogo} width="104" height="16" />
+          <ReactSVG className={styles.rentalCarLogo} src={rentalCarLogo} />
         </Link>
         <nav className={styles.nav}>
           <ul className={styles.navList}>
