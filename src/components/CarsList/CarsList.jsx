@@ -8,13 +8,15 @@ const CarsList = ({ cars }) => {
   }
 
   return (
-    <ul className={styles.carsList}>
-      {cars.map(car => (
-        <li key={car.id} className={styles.carItem}>
-          <CarCard car={car} />
-        </li>
-      ))}
-    </ul>
+    <div className={styles.carsContainer}>
+      <ul className={styles.carsList}>
+        {cars.map(car => (
+          <li key={car.id} className={styles.carItem}>
+            <CarCard car={car} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

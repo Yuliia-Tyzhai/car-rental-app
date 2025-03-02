@@ -14,9 +14,7 @@ import { Link } from 'react-router-dom';
 
 const CarCard = ({ car }) => {
   const dispatch = useDispatch();
-  const favouriteCars = useSelector(state =>
-    Array.isArray(state.favouriteCars) ? state.favouriteCars : []
-  );
+  const favouriteCars = useSelector(state => state.favouriteCars.items);
   const isFavourite = favouriteCars.some(favCar => favCar.id === car.id);
 
   const handleFavouriteClick = () => {

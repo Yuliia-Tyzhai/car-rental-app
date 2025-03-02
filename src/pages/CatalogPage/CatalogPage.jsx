@@ -5,6 +5,8 @@ import {
   selectAllCars,
   selectCarsStatus,
   selectCarsError,
+  selectCurrentPage,
+  selectTotalPages,
 } from '../../redux/cars/selectors';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import CarsList from '../../components/CarsList/CarsList';
@@ -17,7 +19,11 @@ const CatalogPage = () => {
   const cars = useSelector(selectAllCars);
   const loading = useSelector(selectCarsStatus) === 'loading';
   const error = useSelector(selectCarsError);
+  const currentPage = useSelector(selectCurrentPage);
+  const totalPages = useSelector(selectTotalPages);
   const [searchParams, setSearchParams] = useState({});
+
+  const hasMoreCars = currentPage < totalPages;
 
   useEffect(() => {
     dispatch(fetchCars(searchParams));
@@ -38,11 +44,14 @@ const CatalogPage = () => {
       <Loader loading={loading} />
       {error && <p>{error}</p>}
       <CarsList cars={cars} />
-      <div className={styles.buttonContainer}>
-        <button className={styles.buttonLoadMore} onClick={handleLoadMore}>
-          Load More
-        </button>
-      </div>
+
+      {hasMoreCars && (
+        <div className={styles.buttonContainer}>
+          <button className={styles.buttonLoadMore} onClick={handleLoadMore}>
+            Load More
+          </button>
+        </div>
+      )}
     </div>
   );
 };

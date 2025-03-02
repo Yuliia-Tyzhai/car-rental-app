@@ -1,9 +1,9 @@
 .searchBox {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
   gap: 16px;
+  margin-bottom: 56px;
 }
 
 .formGroup {

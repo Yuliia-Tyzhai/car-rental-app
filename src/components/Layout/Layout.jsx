@@ -1,12 +1,14 @@
 import React from 'react';
-import { Suspense } from 'react';
 import Navigation from '../Navigation/Navigation';
+import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
-      <Navigation />
-      <Suspense fallback={null}>{children}</Suspense>
+    <div className={styles.layoutContainer}>
+      <div className={styles.navContainer}>
+        <Navigation />
+      </div>
+      {children}
     </div>
   );
 };

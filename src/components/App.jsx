@@ -1,16 +1,13 @@
-// src/components/App.jsx
 import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 
-// Ліниве завантаження сторінок
 const HomePage = React.lazy(() => import('../pages/HomePage/HomePage'));
 const CatalogPage = React.lazy(() =>
   import('../pages/CatalogPage/CatalogPage')
 );
 const CarPage = React.lazy(() => import('../pages/CarPage/CarPage'));
 
-// Компонент для відображення під час завантаження
 const Loader = () => <div>Loading...</div>;
 
 function App() {
