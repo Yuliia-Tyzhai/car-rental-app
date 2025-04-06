@@ -12,10 +12,8 @@ const HomePage = () => {
         <p className={styles.paragraph}>
           Reliable and budget-friendly rentals for any journey
         </p>
-        <Link to="/catalog">
-          <button className={styles.mainButton} type="button">
-            View Catalog
-          </button>
+        <Link to="/catalog" className={styles.mainButton}>
+          View Catalog
         </Link>
       </div>
     </div>
