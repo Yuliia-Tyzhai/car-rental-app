@@ -15,7 +15,10 @@ const filtersSlice = createSlice({
       state.rentalPrice = action.payload;
     },
     setMileage: (state, action) => {
-      state.mileage = action.payload;
+      const { from, to } = action.payload;
+      if (from !== undefined && to !== undefined) {
+        state.mileage = { from, to };
+      }
     },
     resetFilters: state => {
       state.brand = '';

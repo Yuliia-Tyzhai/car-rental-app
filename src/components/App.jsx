@@ -7,6 +7,9 @@ const CatalogPage = React.lazy(() =>
   import('../pages/CatalogPage/CatalogPage')
 );
 const CarPage = React.lazy(() => import('../pages/CarPage/CarPage'));
+const NotFoundPage = React.lazy(() =>
+  import('../pages/NotFoundPage/NotFoundPage')
+);
 
 const Loader = () => <div>Loading...</div>;
 
@@ -19,6 +22,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/catalog/:id" element={<CarPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </Layout>
